@@ -60,7 +60,7 @@ const columns = [
     {
 
         headerName: "",
-        field: "_links.self.href",
+        field: "links.[0].href",
         width: 90,
         cellRendererFramework: (params) => ( <EditHenk updateHenk={updateHenk} params={params}/>
         ),

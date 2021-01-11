@@ -61,7 +61,7 @@ function EditHenk(props) {
           onClose={handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Päivitä auto</DialogTitle>
+          <DialogTitle id="form-dialog-title">Päivitä henkilö</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus
