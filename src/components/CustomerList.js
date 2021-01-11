@@ -56,11 +56,11 @@ const columns = [
     {field: "city",sortable:true,filter:true},
     {field: "email",sortable:true,filter:true},
     {field: "phone",sortable:true,filter:true},
-
+// links.[0].href ei toimi, ei tykkää hakasuluist
     {
 
         headerName: "",
-        field: "links.[0].href",
+        field: "links.0.href",
         width: 90,
         cellRendererFramework: (params) => ( <EditHenk updateHenk={updateHenk} params={params}/>
         ),
