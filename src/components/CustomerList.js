@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
+import EditHenk from './EditHenk';
 
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-material.css";
@@ -33,6 +34,19 @@ function CustomerList() {
         console.log(henk)
     };
 
+    const updateHenk = (link,tiedot) =>{
+
+        fetch(link, {
+            method:"PUT",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(tiedot)
+        })
+        .then(_=>getHenkilot())
+        .catch((err)=>console.error(err));
+    }
+
 const columns = [
 
     {field: "firstname",sortable:true,filter:true},
@@ -43,6 +57,15 @@ const columns = [
     {field: "email",sortable:true,filter:true},
     {field: "phone",sortable:true,filter:true},
 
+    {
+
+        headerName: "",
+        field: "_links.self.href",
+        width: 90,
+        cellRendererFramework: (params) => ( <EditHenk updateHenk={updateHenk} params={params}/>
+        ),
+  
+      },
 
 ]
 
