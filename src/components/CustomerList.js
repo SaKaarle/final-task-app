@@ -32,8 +32,9 @@ function CustomerList() {
         .catch((err) => console.error(err));
         console.log(henk)
     };
-
+//test
 const columns = [
+
 
     {field: "firstname",sortable:true,filter:true},
     {field: "lastname",sortable:true,filter:true},
