@@ -6,7 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-function EditHenk(props) {
+function AddHenk(props) {
   const [open, setOpen] = useState(false);
   const [henk, setHenk] = useState({
     firstname: "",
@@ -17,44 +17,36 @@ function EditHenk(props) {
     email: "",
     phone: "",
   });
-
   const handleInputChange = (e) => {
     setHenk({ ...henk, [e.target.name]: e.target.value });
   };
-
   const handleSave = () => {
-    props.updateHenk(props.params.value, henk);
+    props.saveHenk(henk);
     handleClose();
   };
   const handleClickOpen = () => {
-    setHenk({
-      firstname: props.params.data.firstname,
-      lastname: props.params.data.lastname,
-      streetaddress: props.params.data.streetaddress,
-      postcode: props.params.data.postcode,
-      city: props.params.data.city,
-      email: props.params.data.email,
-      phone: props.params.data.phone,
-    });
-    console.log(props.params);
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div>
-      <Button size="small" color="primary" onClick={handleClickOpen}>
-        Edit
+      <Button
+        style={{ margin: "5*" }}
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+      >
+        Lisää asiakas
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Päivitä henkilö</DialogTitle>
+        <DialogTitle id="form-dialog-title">Uusi asiakas</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -99,13 +91,14 @@ function EditHenk(props) {
           />
           <TextField
             margin="dense"
-            name="price"
+            name="email"
             value={henk.email}
             onChange={(e) => handleInputChange(e)}
-            label="Price"
+            label="Email"
             fullWidth
           />
           <TextField
+            autoFocus
             margin="dense"
             name="phone"
             value={henk.phone}
@@ -126,4 +119,4 @@ function EditHenk(props) {
     </div>
   );
 }
-export default EditHenk;
+export default AddHenk;

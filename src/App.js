@@ -7,7 +7,7 @@ import CustomerList from './components/CustomerList';
 function App() {
   return (
     <div className="App">
-      <h1>test</h1>
+      <h1>Lopputyö</h1>
       <CustomerList />
     </div>
   );
